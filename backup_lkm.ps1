@@ -145,9 +145,8 @@ Import-csv $cluster_file | ForEach-Object {
       }"
     $parameters.uri_operator = "/data_at_rest_encryption/download_encryption_key"
     $parameters.method = "POST"
-    #$response = callREST -p $parameters
-    #$backup = $response.backup_data
-    $backup = "Mq4DIUxhSdljjALkwROhfISbzCmQThP8emp6xFX1a7JCLtIu0JhRjTZkOH6a8m0nPjbBt1TwTaBDYVYkC8NyMLpVq8PFXu09Gl6ifLZ8RQke+kOpEAOHUGJdFDHOy+Ph7zHLHpXXw1gXEWGX8fleV9lh9AbrtSUYCiQwM526aP/j2PBjliQFptPX+JPexNsG1iupM+oUbb2RMbwSInvPI6OSVw1dGPrqW10CREJXIzjL7GDbTNv7545iTkDIUgmJecmCBEh0Oi2btza/D5ZhHDe9Kxk4kJDofB1d4+yi7h7AJzVDNdgrM4IkHPkAo0VZMTt63TubhzSm9IWVeJuIAdKtcp6wp/rCon1DJYPp75iXAaUADnDEOiELjds6JWwPRSnkvsCsZS2xaw9LXsR51QCDA34nVTavNRZfPlkjUqL4rB3GS6BwkPXy+H8IIHM8exNblOXufQR2fW0iv20Wbxy56tfrFhd//XGeyjXUR66CwM/Oh+afvsHT0t4QGjfp+5FMimZjawatuhkmATRiIfwHEJ5HUqKv+JZf4kMkruRnb8CIcyl/AGCVbrNzq8pSBDoITSYbFTNvEeFCEJr0uJwCYXbK4jL/HS74kJ9KEJX8lGCIc5vzxRCjZq/iCvFQBViXg+7xBWIgoqj5Vr2bBnRFVSreCXMOntg8lyC0itKFkrAob7K3OuloAXIQIZZn+wsvT4uqxxBUSeCnLnIQNhIBkFq/RWqyWUlelEt+bHIQXhCT/BsTSJyjrWp6HOk/FHIQnjf6HTH5Qg+ufDiTwtM3aXIQ6mTKF4OlQBOwszHfNPySng=="
+    $response = callREST -p $parameters
+    $backup = $response.backup_data
     #decode and write out binary file needed by mantle_recovery_util
     $datetime = Get-Date -Format "yyyyMMddHHmm"
     $file_name = "c:\script\Nutanix_KEYBACKUP_" + $cluster_name + "_" + $datetime
