@@ -12,6 +12,7 @@ class RequestParameters {
 
 #Variables & initializations
 $cluster_file = "c:\script\clusters.csv"
+$backup_file_dir = "c:\script\"
 $backup_password = ""
 $parameters = [RequestParameters]::new()
 $parameters.headers = [Hashtable]::new()
@@ -149,7 +150,7 @@ Import-csv $cluster_file | ForEach-Object {
     $backup = $response.backup_data
     #decode and write out binary file needed by mantle_recovery_util
     $datetime = Get-Date -Format "yyyyMMddHHmm"
-    $file_name = "c:\script\Nutanix_KEYBACKUP_" + $cluster_name + "_" + $datetime
+    $file_name = $backup_file_dir + "Nutanix_KEYBACKUP_" + $cluster_name + "_" + $datetime + ".bin"
     Write-Host "---"
     Write-Host ("Backup File:  " + $file_name)
     [System.Convert]::FromBase64String($backup) | Set-Content $file_name -Encoding Byte
