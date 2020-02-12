@@ -29,7 +29,7 @@ function callREST () {
     param([RequestParameters]$p)
     $uri = $p.uri_base + $p.uri_operator
     try {
-        If (-not ([string]::IsNullOrEmpty($r.payload))) {
+        If (-not ([string]::IsNullOrEmpty($p.payload))) {
             Invoke-RestMethod -Uri $uri -Headers $p.headers -Method $p.method -Body $p.payload -TimeoutSec 30 -UseBasicParsing -DisableKeepAlive
         }
         Else {
